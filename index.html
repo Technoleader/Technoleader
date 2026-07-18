@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>ООО «Технолидер»</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
 
@@ -15,38 +13,44 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+
+height:100%;
+
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+
+background:#111315;
+
+overflow:hidden;
+
+color:#fff;
+
 }
 
 body{
 
-height:100vh;
-
 display:flex;
+
 justify-content:center;
+
 align-items:center;
 
-background:
-radial-gradient(circle at center,#ffffff 0%,#f3f6fa 100%);
-
-font-family:
-"Segoe UI",
-Arial,
-sans-serif;
-
-overflow:hidden;
-
-color:#1f2937;
+position:relative;
 
 }
 
-.background{
+/* фон */
+
+body:before{
+
+content:"";
 
 position:absolute;
 
-width:900px;
-height:900px;
-
-border-radius:50%;
+inset:-20%;
 
 background:
 
@@ -54,83 +58,83 @@ repeating-radial-gradient(
 
 circle,
 
-transparent 0px,
+rgba(255,255,255,.015) 0,
 
-transparent 17px,
+rgba(255,255,255,.015) 2px,
 
-rgba(0,70,160,.035) 18px,
+transparent 2px,
 
-transparent 19px
+transparent 42px
 
 );
 
-animation:rotate 80s linear infinite;
+animation:breathe 12s ease-in-out infinite;
 
-opacity:.7;
-
-}
-
-@keyframes rotate{
-
-from{
-
-transform:rotate(0deg);
+opacity:.45;
 
 }
 
-to{
+@keyframes breathe{
 
-transform:rotate(360deg);
+0%{transform:scale(.98);}
+50%{transform:scale(1.02);}
+100%{transform:scale(.98);}
 
 }
 
-}
+/* контейнер */
 
-.container{
+.wrapper{
 
 position:relative;
 
-z-index:5;
+z-index:2;
 
-text-align:center;
+width:100%;
 
-padding:40px;
-
-}
-
-.logo{
-
-width:150px;
-height:150px;
-
-margin:auto;
-
-border-radius:50%;
+padding:20px;
 
 display:flex;
 
 justify-content:center;
+
+}
+
+/* логотип */
+
+.logo{
+
+width:180px;
+
+height:180px;
+
+border-radius:50%;
+
+border:3px solid #1b73ff;
+
+display:flex;
+
+justify-content:center;
+
 align-items:center;
 
-border:3px solid #003b87;
-
-color:#003b87;
-
-font-size:58px;
+font-size:72px;
 
 font-weight:700;
 
-letter-spacing:-6px;
+color:#84bcff;
 
-margin-bottom:35px;
+cursor:pointer;
 
-background:white;
+transition:.45s;
+
+background:#17191b;
 
 box-shadow:
 
-0 15px 40px rgba(0,0,0,.08);
+0 0 60px rgba(27,115,255,.15);
 
-transition:.3s;
+user-select:none;
 
 }
 
@@ -140,83 +144,139 @@ transform:scale(1.05);
 
 }
 
-h1{
+.logo.active{
 
-font-size:54px;
-
-font-weight:700;
-
-letter-spacing:6px;
-
-margin-bottom:15px;
+transform:translateY(-70px) scale(.9);
 
 }
 
-.subtitle{
+/* карточка */
 
-font-size:20px;
-
-color:#6b7280;
-
-margin-bottom:50px;
-
-}
-
-.buttons{
-
-display:flex;
-
-gap:20px;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-}
-
-.button{
-
-padding:16px 38px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:.25s;
-
-border:2px solid #003b87;
-
-color:#003b87;
-
-}
-
-.button:hover{
-
-background:#003b87;
-
-color:white;
-
-transform:translateY(-3px);
-
-}
-
-.footer{
+.card{
 
 position:absolute;
 
-bottom:30px;
+left:50%;
 
-width:100%;
+top:240px;
+
+transform:translateX(-50%) translateY(30px);
+
+width:min(92vw,420px);
+
+background:#181b1f;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+padding:28px;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.45s;
+
+box-shadow:
+
+0 25px 70px rgba(0,0,0,.35);
+
+}
+
+.card.show{
+
+opacity:1;
+
+transform:translateX(-50%) translateY(0);
+
+pointer-events:auto;
+
+}
+
+h2{
+
+font-size:26px;
+
+margin-bottom:22px;
 
 text-align:center;
 
-font-size:14px;
+}
 
-color:#9ca3af;
+.row{
 
-letter-spacing:1px;
+display:flex;
+
+justify-content:space-between;
+
+padding:10px 0;
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+font-size:15px;
+
+}
+
+.row:last-child{
+
+border:none;
+
+}
+
+.label{
+
+color:#8f98a5;
+
+}
+
+.value{
+
+text-align:right;
+
+max-width:55%;
+
+}
+
+.note{
+
+margin-top:20px;
+
+text-align:center;
+
+color:#8f98a5;
+
+font-size:13px;
+
+}
+
+/* мобильные */
+
+@media(max-width:480px){
+
+.logo{
+
+width:150px;
+
+height:150px;
+
+font-size:60px;
+
+}
+
+.logo.active{
+
+transform:translateY(-55px) scale(.9);
+
+}
+
+.card{
+
+top:205px;
+
+padding:22px;
+
+}
 
 }
 
@@ -226,41 +286,71 @@ letter-spacing:1px;
 
 <body>
 
-<div class="background"></div>
+<div class="wrapper">
 
-<div class="container">
+<div id="logo" class="logo">
 
-<div class="logo">
-
-TL
+ТЛ
 
 </div>
 
-<h1>ТЕХНОЛИДЕР</h1>
+<div id="card" class="card">
 
-<div class="subtitle">
+<h2>ООО «Технолидер»</h2>
 
-Инженерные решения нового поколения
+<div class="row">
+<div class="label">ИНН</div>
+<div class="value">XXXXXXXXXX</div>
+</div>
+
+<div class="row">
+<div class="label">КПП</div>
+<div class="value">XXXXXXXXX</div>
+</div>
+
+<div class="row">
+<div class="label">ОГРН</div>
+<div class="value">XXXXXXXXXXXXX</div>
+</div>
+
+<div class="row">
+<div class="label">Юридический адрес</div>
+<div class="value">г. _________</div>
+</div>
+
+<div class="row">
+<div class="label">Телефон</div>
+<div class="value">+7 (___) ___-__-__</div>
+</div>
+
+<div class="row">
+<div class="label">E-mail</div>
+<div class="value">info@technolider.ru</div>
+</div>
+
+<div class="note">
+
+Нажмите на логотип ещё раз, чтобы скрыть информацию
 
 </div>
 
-<div class="buttons">
-
-<a class="button" href="#">О компании</a>
-
-<a class="button" href="#">Контакты</a>
-
-<a class="button" href="#">Скоро здесь появится сайт</a>
-
 </div>
 
 </div>
 
-<div class="footer">
+<script>
 
-© 2026 ООО «Технолидер»
+const logo=document.getElementById("logo");
+const card=document.getElementById("card");
 
-</div>
+logo.onclick=()=>{
+
+logo.classList.toggle("active");
+card.classList.toggle("show");
+
+}
+
+</script>
 
 </body>
 </html>
