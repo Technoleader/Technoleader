@@ -2,35 +2,221 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>ООО Технолидер</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ООО «Технолидер»</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
 
-margin:0;
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+radial-gradient(circle at center,#ffffff 0%,#f3f6fa 100%);
+
+font-family:
+"Segoe UI",
+Arial,
+sans-serif;
+
+overflow:hidden;
+
+color:#1f2937;
+
+}
+
+.background{
+
+position:absolute;
+
+width:900px;
+height:900px;
+
+border-radius:50%;
+
+background:
+
+repeating-radial-gradient(
+
+circle,
+
+transparent 0px,
+
+transparent 17px,
+
+rgba(0,70,160,.035) 18px,
+
+transparent 19px
+
+);
+
+animation:rotate 80s linear infinite;
+
+opacity:.7;
+
+}
+
+@keyframes rotate{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.container{
+
+position:relative;
+
+z-index:5;
+
+text-align:center;
+
+padding:40px;
+
+}
+
+.logo{
+
+width:150px;
+height:150px;
+
+margin:auto;
+
+border-radius:50%;
 
 display:flex;
 
 justify-content:center;
-
 align-items:center;
 
-height:100vh;
+border:3px solid #003b87;
 
-background:#ffffff;
+color:#003b87;
 
-font-family:Arial,sans-serif;
+font-size:58px;
+
+font-weight:700;
+
+letter-spacing:-6px;
+
+margin-bottom:35px;
+
+background:white;
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.logo:hover{
+
+transform:scale(1.05);
 
 }
 
 h1{
 
-font-size:52px;
-
-letter-spacing:4px;
+font-size:54px;
 
 font-weight:700;
+
+letter-spacing:6px;
+
+margin-bottom:15px;
+
+}
+
+.subtitle{
+
+font-size:20px;
+
+color:#6b7280;
+
+margin-bottom:50px;
+
+}
+
+.buttons{
+
+display:flex;
+
+gap:20px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+.button{
+
+padding:16px 38px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.25s;
+
+border:2px solid #003b87;
+
+color:#003b87;
+
+}
+
+.button:hover{
+
+background:#003b87;
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+.footer{
+
+position:absolute;
+
+bottom:30px;
+
+width:100%;
+
+text-align:center;
+
+font-size:14px;
+
+color:#9ca3af;
+
+letter-spacing:1px;
 
 }
 
@@ -40,8 +226,41 @@ font-weight:700;
 
 <body>
 
-<h1>ООО «ТЕХНОЛИДЕР»</h1>
+<div class="background"></div>
+
+<div class="container">
+
+<div class="logo">
+
+TL
+
+</div>
+
+<h1>ТЕХНОЛИДЕР</h1>
+
+<div class="subtitle">
+
+Инженерные решения нового поколения
+
+</div>
+
+<div class="buttons">
+
+<a class="button" href="#">О компании</a>
+
+<a class="button" href="#">Контакты</a>
+
+<a class="button" href="#">Скоро здесь появится сайт</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 ООО «Технолидер»
+
+</div>
 
 </body>
-
 </html>
