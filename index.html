@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>ООО «Технолидер»</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
-
-height:100%;
-
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-
-background:#111315;
-
-overflow:hidden;
-
-color:#fff;
-
+html{
+    height:100%;
 }
 
 body{
 
-display:flex;
+    min-height:100vh;
 
-justify-content:center;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 
-align-items:center;
+    background:#111315;
 
-position:relative;
+    color:#ffffff;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    display:flex;
+    justify-content:center;
+
+    position:relative;
 
 }
 
-/* фон */
+/* ---------------- ФОН ---------------- */
 
-body:before{
+body::before{
 
-content:"";
+    content:"";
 
-position:absolute;
+    position:fixed;
 
-inset:-20%;
+    inset:-20%;
 
-background:
+    background:
 
-repeating-radial-gradient(
+    repeating-radial-gradient(
 
-circle,
+    circle,
 
-rgba(255,255,255,.015) 0,
+    rgba(255,255,255,.018) 0,
 
-rgba(255,255,255,.015) 2px,
+    rgba(255,255,255,.018) 2px,
 
-transparent 2px,
+    transparent 2px,
 
-transparent 42px
+    transparent 44px
 
-);
+    );
 
-animation:breathe 12s ease-in-out infinite;
+    animation:breathe 14s ease-in-out infinite;
 
-opacity:.45;
+    opacity:.45;
+
+    pointer-events:none;
 
 }
 
@@ -82,199 +83,210 @@ opacity:.45;
 
 }
 
-/* контейнер */
+/* ---------------- КОНТЕЙНЕР ---------------- */
 
 .wrapper{
 
-position:relative;
+    width:100%;
+    max-width:460px;
 
-z-index:2;
+    padding:70px 22px 70px;
 
-width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 
-padding:20px;
-
-display:flex;
-
-justify-content:center;
+    position:relative;
+    z-index:2;
 
 }
 
-/* логотип */
+/* ---------------- ЛОГОТИП ---------------- */
 
 .logo{
 
-width:180px;
+    width:160px;
+    height:160px;
 
-height:180px;
+    border-radius:50%;
 
-border-radius:50%;
+    border:3px solid #1b73ff;
 
-border:3px solid #1b73ff;
+    background:#17191b;
 
-display:flex;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-justify-content:center;
+    color:#86bcff;
 
-align-items:center;
+    font-size:62px;
+    font-weight:700;
 
-font-size:72px;
+    cursor:pointer;
 
-font-weight:700;
+    transition:.35s;
 
-color:#84bcff;
+    user-select:none;
 
-cursor:pointer;
+    box-shadow:
 
-transition:.45s;
-
-background:#17191b;
-
-box-shadow:
-
-0 0 60px rgba(27,115,255,.15);
-
-user-select:none;
+    0 0 50px rgba(27,115,255,.12);
 
 }
 
 .logo:hover{
 
-transform:scale(1.05);
+    transform:scale(1.05);
 
 }
 
 .logo.active{
 
-transform:translateY(-70px) scale(.9);
+    transform:scale(.95);
 
 }
 
-/* карточка */
+/* ---------------- КАРТОЧКА ---------------- */
 
 .card{
 
-position:absolute;
+    width:100%;
 
-left:50%;
+    margin-top:0;
 
-top:240px;
+    max-height:0;
 
-transform:translateX(-50%) translateY(30px);
+    overflow:hidden;
 
-width:min(92vw,420px);
+    opacity:0;
 
-background:#181b1f;
+    transition:
 
-border:1px solid rgba(255,255,255,.08);
+    max-height .45s ease,
+    opacity .35s ease,
+    margin-top .35s ease;
 
-border-radius:22px;
+    background:#181b1f;
 
-padding:28px;
+    border-radius:22px;
 
-opacity:0;
+    border:1px solid rgba(255,255,255,.08);
 
-pointer-events:none;
+    box-shadow:
 
-transition:.45s;
-
-box-shadow:
-
-0 25px 70px rgba(0,0,0,.35);
+    0 25px 60px rgba(0,0,0,.35);
 
 }
 
 .card.show{
 
-opacity:1;
+    max-height:1200px;
 
-transform:translateX(-50%) translateY(0);
+    margin-top:32px;
 
-pointer-events:auto;
+    opacity:1;
+
+}
+
+.card-content{
+
+    padding:28px;
 
 }
 
 h2{
 
-font-size:26px;
+    text-align:center;
 
-margin-bottom:22px;
+    font-size:28px;
 
-text-align:center;
+    margin-bottom:26px;
 
 }
 
 .row{
 
-display:flex;
+    display:flex;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-padding:10px 0;
+    align-items:flex-start;
 
-border-bottom:1px solid rgba(255,255,255,.06);
+    gap:20px;
 
-font-size:15px;
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    font-size:15px;
 
 }
 
 .row:last-child{
 
-border:none;
+    border:none;
 
 }
 
 .label{
 
-color:#8f98a5;
+    color:#98a3b0;
+
+    flex-shrink:0;
 
 }
 
 .value{
 
-text-align:right;
+    text-align:right;
 
-max-width:55%;
+    word-break:break-word;
 
 }
 
 .note{
 
-margin-top:20px;
+    margin-top:24px;
 
-text-align:center;
+    text-align:center;
 
-color:#8f98a5;
+    color:#98a3b0;
 
-font-size:13px;
+    font-size:13px;
+
+    line-height:1.5;
 
 }
 
-/* мобильные */
+/* ---------------- МОБИЛЬНЫЕ ---------------- */
 
 @media(max-width:480px){
 
+.wrapper{
+
+padding:60px 18px 50px;
+
+}
+
 .logo{
 
-width:150px;
+width:135px;
+height:135px;
 
-height:150px;
-
-font-size:60px;
-
-}
-
-.logo.active{
-
-transform:translateY(-55px) scale(.9);
+font-size:52px;
 
 }
 
-.card{
+h2{
 
-top:205px;
+font-size:24px;
 
-padding:22px;
+}
+
+.row{
+
+font-size:14px;
 
 }
 
@@ -296,6 +308,8 @@ padding:22px;
 
 <div id="card" class="card">
 
+<div class="card-content">
+
 <h2>ООО «Технолидер»</h2>
 
 <div class="row">
@@ -315,22 +329,29 @@ padding:22px;
 
 <div class="row">
 <div class="label">Юридический адрес</div>
-<div class="value">г. _________</div>
+<div class="value">
+г. Москва,<br>
+ул. ____________, д. __
+</div>
 </div>
 
 <div class="row">
 <div class="label">Телефон</div>
-<div class="value">+7 (___) ___-__-__</div>
+<div class="value">
++7 (___) ___-__-__
+</div>
 </div>
 
 <div class="row">
 <div class="label">E-mail</div>
-<div class="value">info@technolider.ru</div>
+<div class="value">
+info@technolider.ru
+</div>
 </div>
 
 <div class="note">
-
-Нажмите на логотип ещё раз, чтобы скрыть информацию
+Нажмите на логотип ещё раз, чтобы скрыть реквизиты.
+</div>
 
 </div>
 
@@ -343,14 +364,15 @@ padding:22px;
 const logo=document.getElementById("logo");
 const card=document.getElementById("card");
 
-logo.onclick=()=>{
+logo.addEventListener("click",()=>{
 
 logo.classList.toggle("active");
 card.classList.toggle("show");
 
-}
+});
 
 </script>
 
 </body>
+
 </html>
